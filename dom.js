@@ -96,7 +96,7 @@ export function updateUI() {
 };
 
 function UpdateCheckBoxUI() {
-   breakfastElem.textContent = (didBreakfast) ? "✅ Breakfast" : "☐ Breakfast"
-   lunchElem.textContent = (didLunch) ? "✅ Lunch" : "☐ Lunch"
-   dinnerElem.textContent = (didDinner) ? "✅ Dinner" : "☐ Dinner"
+   breakfastElem.textContent = (didBreakfast) ? "✅ Breakfast" : "⬜ Breakfast"
+   lunchElem.textContent = (didLunch) ? "✅ Lunch" : "⬜ Lunch"
+   dinnerElem.textContent = (didDinner) ? "✅ Dinner" : "⬜ Dinner"
 };
