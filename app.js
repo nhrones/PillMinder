@@ -21,7 +21,7 @@ export const pillRecords = new Map();
 //       recordElem.textContent =`Date: ${formatDate(rec.date)}, 
 //       breakfast: ${rec.breakfast}, 
 //       lunch: ${rec.lunch}, 
-//       diner: ${rec.diner}`;
+//       dinner: ${rec.dinner}`;
 //       pastRecordsList.appendChild(recordElem);
 //    });
 

@@ -16,13 +16,13 @@ export function getRecords() {
 }
 
 // Add and store new record
-export function storeRecord(date, breakfa, lun, din) {
+export function storeRecord(date, didBreakfast, didLunch, didDinner) {
    //getRecords();
    pillRecords.set(date, {
       date: date,
-      breakfast: breakfa,
-      lunch: lun,
-      diner: din
+      breakfast: didBreakfast,
+      lunch: didLunch,
+      dinner: didDinner
    });
 
    // TODO order the map by date - newest at top

@@ -1,6 +1,6 @@
 import { pillRecords } from './app.js';
 import { storeRecord } from './store.js'
-import { addDay, formatDate, toDateInputValue, substractDay } from './utils.js'
+import { addOneDay, toDateInputValue, substractOneDay } from './utils.js'
 
 
 const $ = (/** @type {string} */ id) => document.getElementById(id);
@@ -19,28 +19,28 @@ const forwardBtn = /** @type {HTMLElement} */ $("forwardBtn");
 
 let didBreakfast = false
 let didLunch = false
-let didDiner = false
+let didDinner = false
 
-export let selectedDate = toDateInputValue(new Date());
-dateElem.value = selectedDate;
+export let selectedDate = new Date();
+
+dateElem.value = toDateInputValue(selectedDate);
 
 todayBtn.addEventListener("click", (e) => {
-   selectedDate = toDateInputValue(new Date());
-   dateElem.value = selectedDate;
+   selectedDate = new Date();
+   dateElem.value = toDateInputValue(selectedDate);
    updateUI()
 })
 
 backBtn.addEventListener("click", (e) => {
-   selectedDate = toDateInputValue(substractDay(new Date(selectedDate)))
-   console.log(selectedDate)
-   dateElem.value = selectedDate;
+   selectedDate = substractOneDay(selectedDate)
+   dateElem.value = toDateInputValue(selectedDate);
    updateUI()
 })
 
 forwardBtn.addEventListener("click", (e) => {
-   selectedDate = toDateInputValue(addDay(new Date(selectedDate)))
+   selectedDate = addOneDay(selectedDate)
    console.log(selectedDate)
-   dateElem.value = selectedDate;
+   dateElem.value = toDateInputValue(selectedDate);
    updateUI()
 })
 
@@ -62,7 +62,7 @@ lunchElem.addEventListener("mousedown", (e) => {
 })
 
 dinnerElem.addEventListener("mousedown", (e) => {
-   didDiner = !didDiner
+   didDinner = !didDinner
    saveChanges()
 })
 
@@ -73,24 +73,26 @@ export function create(elem) {
 
 /** saveChanges */
 function saveChanges() {
-   storeRecord(dateElem.value, didBreakfast, didLunch, didDiner);
+   storeRecord(selectedDate.toDateString(), didBreakfast, didLunch, didDinner);
    //renderRecords();
    updateUI()
 };
 
 export function updateUI() {
-   const thisRecord = pillRecords.get(selectedDate)
+   const thisRecord = pillRecords.get(selectedDate.toDateString());
+   console.info("thisRecord: ", thisRecord)
    if (thisRecord && thisRecord.date) {
-      dateElem.value = thisRecord.date;
+      console.log(`selectedDate: ${selectedDate}, thisRecord.date: ${thisRecord.date}`)
+      dateElem.value = toDateInputValue(thisRecord.date);
       didBreakfast = thisRecord.breakfast
       didLunch = thisRecord.lunch
-      didDiner = thisRecord.diner
+      didDinner = thisRecord.dinner
       UpdateCheckBoxUI()
    } else {
-      dateElem.value = selectedDate;
+      dateElem.value = toDateInputValue(selectedDate);
       didBreakfast = false
       didLunch = false
-      didDiner = false
+      didDinner = false
       UpdateCheckBoxUI()
    }
 };
@@ -98,5 +100,5 @@ export function updateUI() {
 function UpdateCheckBoxUI() {
    breakfastElem.textContent = (didBreakfast) ? "✅ Breakfast" : "☐ Breakfast"
    lunchElem.textContent = (didLunch) ? "✅ Lunch" : "☐ Lunch"
-   dinnerElem.textContent = (didDiner) ? "✅ Diner" : "☐ Diner"
+   dinnerElem.textContent = (didDinner) ? "✅ Dinner" : "☐ Dinner"
 };

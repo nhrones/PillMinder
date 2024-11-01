@@ -1,20 +1,16 @@
 
-// format dates for display
-export function formatDate(dateString) {
-   const date = new Date(dateString);
-   return date.toLocaleDateString("en-US", { timeZone: "UTC" });
-}
+export function addOneDay(date) {
+   const newDate = new Date(date);
+   newDate.setDate(newDate.getDate() + 1);
+   return newDate;
+ }
 
-export function addDay(startingDate) {
-   return new Date(new Date().setDate(startingDate.getDate() + 1));
-}
-
-export function substractDay(startingDate, number) {
-   return new Date(new Date().setDate(startingDate.getDate() - 1));
+export function substractOneDay(date) {
+   const newDate = new Date(date);
+   newDate.setDate(newDate.getDate() - 1);
+   return newDate;
 }
 
 export function toDateInputValue(dateObject) {
-   const local = new Date(dateObject);
-   local.setMinutes(dateObject.getMinutes() - dateObject.getTimezoneOffset());
-   return local.toJSON().slice(0, 10);
+   return new Date(dateObject).toJSON().slice(0, 10);
 };
