@@ -1,8 +1,6 @@
 import { pillRecords } from './app.js';
 import { storeRecord } from './store.js'
-// import { renderRecords } from './app.js'
-// import { formatDate, toDateInputValue } from './utils.js'
-import {  toDateInputValue } from './utils.js'
+import { addDay, formatDate, toDateInputValue, substractDay } from './utils.js'
 
 
 const $ = (/** @type {string} */ id) => document.getElementById(id);
@@ -13,7 +11,9 @@ export const breakfastElem = /** @type {HTMLInputElement} */ $("breakfast");
 export const lunchElem = /** @type {HTMLInputElement} */ $("lunch");
 export const dinerElem = /** @type {HTMLInputElement} */ $("diner");
 export const recordsContainer = /** @type {HTMLElement} */ $("records");
-const todayBtn = /** @type {HTMLButtonElement} */ $("todayBtn");
+const todayBtn = /** @type {HTMLElement} */ $("todayBtn");
+const backBtn = /** @type {HTMLElement} */ $("backBtn");
+const forwardBtn = /** @type {HTMLElement} */ $("forwardBtn");
 
 
 
@@ -30,6 +30,21 @@ todayBtn.addEventListener("click", (e) => {
    updateUI()
 })
 
+backBtn.addEventListener("click", (e) => {
+   selectedDate = toDateInputValue(substractDay(new Date(selectedDate)))
+   console.log(selectedDate)
+   dateElem.value = selectedDate;
+   updateUI()
+})
+
+forwardBtn.addEventListener("click", (e) => {
+   selectedDate = toDateInputValue(addDay(new Date(selectedDate)))
+   console.log(selectedDate)
+   dateElem.value = selectedDate;
+   updateUI()
+})
+
+
 dateElem.addEventListener("change", (e) => {
    selectedDate = dateElem.value
    updateUI()
@@ -39,11 +54,13 @@ breakfastElem.addEventListener("mousedown", (e) => {
    didBreakfast = !didBreakfast
    saveChanges()
 })
+
 lunchElem.addEventListener("mousedown", (e) => {
    ;
    didLunch = !didLunch
    saveChanges()
 })
+
 dinerElem.addEventListener("mousedown", (e) => {
    didDiner = !didDiner
    saveChanges()
