@@ -14,10 +14,10 @@ body {
 button,
 p,
 input {
-   font-size: 1rem;
+   font-size: 1.5rem;
 }
 label {
-   font-size: 1.5rem;
+   font-size: 3rem;
 }
 .chk {
    margin-left: 20%;
