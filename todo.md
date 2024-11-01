@@ -1,2 +1,3 @@
-Populate the checkboxes with values from Map for date seleccted.
-Auto save on mutations
+
+Remove records display (button for db)
+Add forward / back for dates

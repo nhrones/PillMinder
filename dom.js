@@ -1,7 +1,8 @@
 import { pillRecords } from './app.js';
 import { storeRecord } from './store.js'
-import { renderRecords } from './app.js'
-import { formatDate, toDateInputValue } from './utils.js'
+// import { renderRecords } from './app.js'
+// import { formatDate, toDateInputValue } from './utils.js'
+import {  toDateInputValue } from './utils.js'
 
 
 const $ = (/** @type {string} */ id) => document.getElementById(id);
@@ -56,7 +57,7 @@ export function create(elem) {
 /** saveChanges */
 function saveChanges() {
    storeRecord(dateElem.value, didBreakfast, didLunch, didDiner);
-   renderRecords();
+   //renderRecords();
    updateUI()
 };
 

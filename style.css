@@ -3,7 +3,7 @@
 body {
    font-family: 'Arial', sans-serif;
    color: white;
-   background: linear-gradient(to right, #507d91, #1c596f, #022737);
+   background: darkblue;
    text-align: center;
    font-size: 18px;
    background-size: cover;
@@ -28,7 +28,7 @@ label {
 
 ul {
    border: 1px solid;
-   background-color: blue;
+   background-color: darkblue;
    padding: 0;
    font-family: monospace;
    font-size: small;
