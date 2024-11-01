@@ -21,9 +21,12 @@ label {
 }
 
 .navbtn {
-   margin: 20px;
-   font-size: 2.5rem;
+   margin: 5px;
+   font-size: 2.2rem;
+   background-color: darkblue;
+   color:white;
 }
+
 .chk {
    margin-left: auto;
    margin-right: auto;
