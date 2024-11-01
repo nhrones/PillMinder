@@ -1,5 +1,5 @@
-import { pillRecords } from "./app.js"
-import * as dom from "./dom.js"
+
+export const pillRecords = new Map();
 
 // Storage key is an app-wide constant
 const STORAGE_KEY = "pill-tracker";
@@ -17,7 +17,6 @@ export function getRecords() {
 
 // Add and store new record
 export function storeRecord(date, didBreakfast, didLunch, didDinner) {
-   //getRecords();
    pillRecords.set(date, {
       date: date,
       breakfast: didBreakfast,
@@ -25,7 +24,7 @@ export function storeRecord(date, didBreakfast, didLunch, didDinner) {
       dinner: didDinner
    });
 
-   // TODO order the map by date - newest at top
+   //TODO order the map by date - newest at top
    // records.sort((a, b) => {
    //    return new Date(b.date) - new Date(a.date);
    // });

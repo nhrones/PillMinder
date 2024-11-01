@@ -1,5 +1,5 @@
-import { pillRecords } from './app.js';
-import { storeRecord } from './store.js'
+
+import { pillRecords, storeRecord } from './store.js'
 import { addOneDay, toDateInputValue, substractOneDay } from './utils.js'
 
 
@@ -74,15 +74,13 @@ export function create(elem) {
 /** saveChanges */
 function saveChanges() {
    storeRecord(selectedDate.toDateString(), didBreakfast, didLunch, didDinner);
-   //renderRecords();
+   //TODO renderRecords();
    updateUI()
 };
 
 export function updateUI() {
    const thisRecord = pillRecords.get(selectedDate.toDateString());
-   console.info("thisRecord: ", thisRecord)
    if (thisRecord && thisRecord.date) {
-      console.log(`selectedDate: ${selectedDate}, thisRecord.date: ${thisRecord.date}`)
       dateElem.value = toDateInputValue(thisRecord.date);
       didBreakfast = thisRecord.breakfast
       didLunch = thisRecord.lunch

@@ -1,15 +1,13 @@
 
-import * as dom from "./dom.js"
-// import { formatDate, toDateInputValue } from "./utils.js"
-// import { getRecords, storeRecord } from "./store.js"
+import { updateUI } from "./dom.js"
 import { getRecords } from "./store.js"
 
-export const pillRecords = new Map();
 
 // -------------
 // Functionality
 // -------------
 
+//TODO
 // display data
 // export function renderRecords() { 
 //    const pastRecordsList = dom.create("ul");
@@ -28,6 +26,6 @@ export const pillRecords = new Map();
 //    dom.recordsContainer.appendChild(pastRecordsList);
 // }
 
-//renderRecords();
+//TODO renderRecords();
 getRecords()
-dom.updateUI()
+updateUI()
