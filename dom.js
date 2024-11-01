@@ -9,7 +9,7 @@ export const newRecordForm = /** @type {HTMLFormElement} */ $("new-record");
 export const dateElem = /** @type {HTMLInputElement} */ $("this-date");
 export const breakfastElem = /** @type {HTMLInputElement} */ $("breakfast");
 export const lunchElem = /** @type {HTMLInputElement} */ $("lunch");
-export const dinerElem = /** @type {HTMLInputElement} */ $("diner");
+export const dinnerElem = /** @type {HTMLInputElement} */ $("dinner");
 export const recordsContainer = /** @type {HTMLElement} */ $("records");
 const todayBtn = /** @type {HTMLElement} */ $("todayBtn");
 const backBtn = /** @type {HTMLElement} */ $("backBtn");
@@ -61,7 +61,7 @@ lunchElem.addEventListener("mousedown", (e) => {
    saveChanges()
 })
 
-dinerElem.addEventListener("mousedown", (e) => {
+dinnerElem.addEventListener("mousedown", (e) => {
    didDiner = !didDiner
    saveChanges()
 })
@@ -98,5 +98,5 @@ export function updateUI() {
 function UpdateCheckBoxUI() {
    breakfastElem.textContent = (didBreakfast) ? "✅ Breakfast" : "☐ Breakfast"
    lunchElem.textContent = (didLunch) ? "✅ Lunch" : "☐ Lunch"
-   dinerElem.textContent = (didDiner) ? "✅ Diner" : "☐ Diner"
+   dinnerElem.textContent = (didDiner) ? "✅ Diner" : "☐ Diner"
 };
