@@ -2,7 +2,6 @@
 import { updateUI } from "./dom.js"
 import { getRecords } from "./store.js"
 
-
 // -------------
 // Functionality
 // -------------
