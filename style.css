@@ -14,13 +14,20 @@ body {
 button,
 p,
 input {
+   margin:25px;
    font-size: 1.5rem;
 }
 label {
    font-size: 3rem;
 }
+
+.navbtn {
+   margin: 25px;
+   font-size: 3rem;
+}
 .chk {
    margin-left: auto;
+   margin-right: auto;
    width: 500px;
    max-width: 500px;
    text-align: left;
